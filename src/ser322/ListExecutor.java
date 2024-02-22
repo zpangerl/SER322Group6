@@ -31,21 +31,25 @@ public class ListExecutor extends Executor{
     public void fullList() {
         try {
             DatabaseMetaData meta = connect.getMetaData();
+            //To get the names of all tables
             ResultSet tables = meta.getTables("GameExplorer", null, "%", null);
             
+            //For every table
             while (tables.next()) {
+                //Get and print table name
                 String tableName = tables.getString("TABLE_NAME");
                 System.out.println(tableName.toUpperCase());
                 stmt = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                //Select all data in current table
                 rs = stmt.executeQuery("SELECT * FROM " + tableName);
                 ResultSetMetaData rsMeta = rs.getMetaData();
+                //Get the number of columns
                 int numColumns = rsMeta.getColumnCount();
+                //Find the largest entry in the column, including the column name
                 int[] columnWidth = new int[numColumns];
-                
                 for(int i = 1; i <= numColumns; i++) {
                     columnWidth[i - 1] = rsMeta.getColumnName(i).length();
                 }
-                
                 while(rs.next()) {
                     for(int i = 1; i <= numColumns; i++) {
                         int length = rs.getString(i).length();
@@ -61,21 +65,25 @@ public class ListExecutor extends Executor{
                 }
                 System.out.println();
                 
+                //Go back to the start of the ResultSet
                 rs.beforeFirst();
+                //Iterate over ResultSet and print all entries in the current table
                 while(rs.next()) {
                     for(int i = 1; i <= numColumns; i++) {
                         System.out.printf("%-" + (columnWidth[i - 1] + 2) + "s", rs.getString(i));
                     }
                     System.out.println();
                 }
+                //Close the ResultSet and Statement
                 rs.close();
                 stmt.close();
                 System.out.println();
             }
+            //Close the Connection
             connect.close();
         }
         catch(SQLException e) {
-            e.printStackTrace();
+            System.out.println("Invalid SQL query, please fix and try again");
         }
     }
 }
