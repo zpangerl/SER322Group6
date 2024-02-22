@@ -26,27 +26,27 @@ public class Main{
             case "i":
                 displayInsertOptions();
                 userInput = in.nextLine().trim().toLowerCase();
-                insertSelection(userInput);
+                insertSelection(userInput, args);
                 break;
             case "u":
                 displayUpdateOptions();
                 userInput = in.nextLine().trim().toLowerCase();
-                updateSelection(userInput);
+                updateSelection(userInput, args);
                 break;
             case "l":
                 displayListOptions();
                 userInput = in.nextLine().trim().toLowerCase();
-                listSelection(userInput);
+                listSelection(userInput, args);
                 break;
             case "s":
                 displaySelectOptions();
                 userInput = in.nextLine().trim().toLowerCase();
-                selectSelection(userInput);
+                selectSelection(userInput, args);
                 break;
             case "d":
                 displayDeleteOptions();
                 userInput = in.nextLine().trim().toLowerCase();
-                deleteSelection(userInput);
+                deleteSelection(userInput, args);
                 break;
             case "q":
                 System.out.println("Exiting Application...");
@@ -88,7 +88,7 @@ public class Main{
         System.out.println("b - Back");
     }
     
-    public static void insertSelection(String input) {
+    public static void insertSelection(String input, String[] args) {
         switch(input) {
         case "1":
             System.out.println("Handle adding Platform");
@@ -137,7 +137,7 @@ public class Main{
         System.out.println("b - Back");
     }
     
-    public static void updateSelection(String input) {
+    public static void updateSelection(String input, String[] args) {
         switch(input) {
         case "1":
             System.out.println("Change price of a game");
@@ -158,10 +158,12 @@ public class Main{
         System.out.println("b - Back");
     }
     
-    public static void listSelection(String input) {
+    public static void listSelection(String input, String[] args) {
         switch(input) {
         case "1":
             System.out.println("List all data");
+            ListExecutor le = new ListExecutor(args[0], args[1], args[2], args[3]);
+            le.run();
             break;
         case "b":
             System.out.println("Going back to previous menu");
@@ -183,7 +185,7 @@ public class Main{
         System.out.println("b - Back");
     }
     
-    public static void selectSelection(String input) {
+    public static void selectSelection(String input, String[] args) {
         switch(input) {
         case "1":
             System.out.println("List games from most to least expensive");
@@ -221,7 +223,7 @@ public class Main{
         System.out.println("b - Back");
     }
 
-    public static void deleteSelection(String input) {
+    public static void deleteSelection(String input, String[] args) {
         switch(input) {
         case "1":
             System.out.println("Delete games under a specific price");
