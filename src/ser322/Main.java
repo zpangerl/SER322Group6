@@ -89,45 +89,8 @@ public class Main{
     }
     
     public static void insertSelection(String input, String[] args) {
-        switch(input) {
-        case "1":
-            System.out.println("Handle adding Platform");
-            break;
-        case "2":
-            //Handle adding Publisher
-            System.out.println("Handle adding Publisher");
-            break;
-        case "3":
-            //Handle adding Video Game
-            System.out.println("Handle adding Video Game");
-            break;
-        case "4":
-            //Handle adding Review
-            System.out.println("Handle adding Review");
-            break;
-        case "5":
-            //Handle adding Voice Actor
-            System.out.println("Handle adding Voice Actor");
-            break;
-        case "6":
-            //Handle adding Works_For
-            System.out.println("Handle adding WorksFor");
-            break;
-        case "7":
-            //Handle adding Appears_In
-            System.out.println("Handle adding AppearsIn");
-            break;
-        case "8":
-            //Handle adding Played_On
-            System.out.println("Handle adding PlayedOn");
-            break;
-        case "b":
-            System.out.println("Going back to previous menu");
-            break;
-        default:
-            System.out.println("Invalid input, returning to main menu");
-            break;
-        }
+        InsertExecutor ie = new InsertExecutor(args[0], args[1], args[2], args[3]);
+        ie.run(input);
     }
     
     public static void displayUpdateOptions() {
