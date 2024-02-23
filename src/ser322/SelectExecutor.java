@@ -78,10 +78,14 @@ public class SelectExecutor extends Executor{
                     + "FROM VIDEO_GAME "
                     + "ORDER BY PRICE DESC");
 
-            System.out.println("Game Title \t\tPrice");
-            System.out.println("========== \t\t=====");
+            System.out.printf("%-25s %-10s\n", "Game Title", "Price");
+            for(int s = 0; s < 35; s++) {
+                System.out.print("=");
+            }
+            System.out.println();
+            
             while (rs.next()) {
-                System.out.println(rs.getString("GameTitle") + "\t\t $" + rs.getString("Price"));
+                System.out.printf("%-25s %s%-9.2f\n", rs.getString("GameTitle"), "$", Float.parseFloat(rs.getString("Price")));
             }
             System.out.println();
 
@@ -98,10 +102,13 @@ public class SelectExecutor extends Executor{
                     + "FROM VIDEO_GAME "
                     + "ORDER BY ESRB_RATING");
 
-            System.out.println("Game Title \tESRB Rating");
-            System.out.println("========== \t===========");
+            System.out.printf("%-25s %-10s\n", "Game Title", "ESRB Rating");
+            for(int s = 0; s < 35; s++) {
+                System.out.print("=");
+            }
+            System.out.println();
             while (rs.next()) {
-                System.out.println(rs.getString("GameTitle") + "\t" + rs.getString("ESRB_Rating"));
+                System.out.printf("%-25s %-10s\n", rs.getString("GameTitle"), rs.getString("ESRB_Rating"));
             }
             System.out.println();
 
@@ -118,10 +125,13 @@ public class SelectExecutor extends Executor{
                     + "FROM VIDEO_GAME "
                     + "ORDER BY Genre");
 
-            System.out.println("Game Title \tGenre");
-            System.out.println("========== \t=====");
+            System.out.printf("%-25s %-15s\n", "Game Title", "Genre");
+            for(int s = 0; s < 40; s++) {
+                System.out.print("=");
+            }
+            System.out.println();
             while (rs.next()) {
-                System.out.println(rs.getString("GameTitle") + "\t" + rs.getString("Genre"));
+                System.out.printf("%-25s %-15s\n", rs.getString("GameTitle"), rs.getString("Genre"));
             }
             System.out.println();
 
@@ -154,10 +164,13 @@ public class SelectExecutor extends Executor{
                     + "WHERE REVIEW.Rating > " + rating + 
                     " ORDER BY REVIEW.Rating DESC");
 
-            System.out.println("Game Name \tReview Rating");
-            System.out.println("========= \t=============");
+            System.out.printf("%-25s %-15s\n", "Game Name", "Review Rating");
+            for(int s = 0; s < 40; s++) {
+                System.out.print("=");
+            }
+            System.out.println();
             while (rs.next()) {
-                System.out.println(rs.getString("GameTitle") + "\t" + rs.getString("Rating"));
+                System.out.printf("%-25s %-15s\n", rs.getString("GameTitle"), rs.getString("Rating"));
             }
             System.out.println();
 
@@ -189,10 +202,13 @@ public class SelectExecutor extends Executor{
                     + "WHERE MaxPlayers >= " + number +
                     " ORDER BY MaxPlayers DESC");
 
-            System.out.println("Platform Name \tMax Players");
-            System.out.println("============= \t===========");
+            System.out.printf("%-25s %-15s\n", "Platform Name", "Max Players");
+            for(int s = 0; s < 40; s++) {
+                System.out.print("=");
+            }
+            System.out.println();
             while (rs.next()) {
-                System.out.println(rs.getString("PlatformName") + "\t" + rs.getString("MaxPlayers"));
+                System.out.printf("%-25s %-15s\n", rs.getString("PlatformName"), rs.getString("MaxPlayers"));
             }
             System.out.println();
 
@@ -235,12 +251,18 @@ public class SelectExecutor extends Executor{
         try {
             stmt = connect.createStatement();
 
-            rs = stmt.executeQuery("SELECT WORKS_FOR.ActorName, WORKS_FOR.PublisherName, APPEARS_IN.GameTitle FROM WORKS_FOR JOIN PUBLISHER ON WORKS_FOR.PublisherName = PUBLISHER.PublisherName JOIN APPEARS_IN ON WORKS_FOR.ActorName = APPEARS_IN.ActorName ORDER BY ActorName ASC");
+            rs = stmt.executeQuery("SELECT WORKS_FOR.ActorName, WORKS_FOR.PublisherName, APPEARS_IN.GameTitle "
+                    + "FROM WORKS_FOR JOIN PUBLISHER ON WORKS_FOR.PublisherName = PUBLISHER.PublisherName "
+                    + "JOIN APPEARS_IN ON WORKS_FOR.ActorName = APPEARS_IN.ActorName "
+                    + "ORDER BY ActorName ASC");
 
-            System.out.println("Actor Name \tPublisher");
-            System.out.println("========== \t=========");
+            System.out.printf("%-20s %-25s %-25s\n", "Actor Name", "Publisher", "Game Title");
+            for(int s = 0; s < 70; s++) {
+                System.out.print("=");
+            }
+            System.out.println();
             while (rs.next()) {
-                System.out.println(rs.getString("ActorName") + "\t" + rs.getString("PublisherName"));
+                System.out.printf("%-20s %-25s %-25s\n", rs.getString("ActorName"), rs.getString("PublisherName"), rs.getString("GameTitle"));
             }
             System.out.println();
 
