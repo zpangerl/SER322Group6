@@ -164,7 +164,7 @@ public class SelectExecutor extends Executor{
 
             rs = stmt.executeQuery("SELECT VIDEO_GAME.GameTitle, REVIEW.Rating "
                     + "FROM VIDEO_GAME JOIN REVIEW ON VIDEO_GAME.GameTitle = REVIEW.GameTitle "
-                    + "WHERE REVIEW.Rating > " + rating +
+                    + "WHERE REVIEW.Rating >= " + rating +
                     " ORDER BY REVIEW.Rating DESC");
 
             System.out.printf("%-25s %-15s\n", "Game Name", "Review Rating");

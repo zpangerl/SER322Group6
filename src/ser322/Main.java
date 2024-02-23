@@ -147,7 +147,7 @@ public class Main {
         System.out.println("3 - List games by genre");
         System.out.println("4 - List all games with a rating of X or higher");
         System.out.println("5 - List all games by a specific publisher on a specific platform");
-        System.out.println("6 - List all platforms by the number of players supported");
+        System.out.println("6 - List all platforms with equal or greater number of entered max players");
         System.out.println("7 - List all voice actors, the publishers they've worked with, and games they've worked on");
         System.out.println("b - Back");
     }
