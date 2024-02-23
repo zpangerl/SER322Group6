@@ -130,6 +130,7 @@ public class SelectExecutor extends Executor{
         }
     }
     
+    //Takes a number from user and displays games with ratings of that number or higher
     private void listGamesRatedOverX() {
         int rating = 0;
         int MIN = 1;
@@ -166,7 +167,7 @@ public class SelectExecutor extends Executor{
         
     }
     
-
+    //Takes a number from user then lists platforms that support that number or more players.
     private void listGamesByNumOfPlayers() {
         int number = 0;
         Scanner scanner = new Scanner(System.in);
@@ -200,6 +201,7 @@ public class SelectExecutor extends Executor{
         }
     }
 
+    //Takes a publisher and platform from user input, then lists games made by the input values.
     private void listGamesByPubAndPlat() {
         String publisher, platform = null;
         Scanner scanner = new Scanner(System.in);
@@ -228,6 +230,7 @@ public class SelectExecutor extends Executor{
         
     }
     
+    //Lists voice actors and the publisher of the games they appear in
     private void listVoiceActors() {
         try {
             stmt = connect.createStatement();
