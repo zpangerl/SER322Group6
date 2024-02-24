@@ -22,7 +22,7 @@ For example, in Windows, it will be "javac -cp .;path/to/jarfile ser322/*.java
 For example, in Windows, it will be "java -cp .;path/to/jarfile ser322.Main jdbc:mysql://localhost:3306/gameexplorer root root com.mysql.cj.jdbc.Driver
 The welcome screen and the main menu will then appear!
 
-Video URL: <TODO>
+Video URL: https://youtu.be/nw3O1gvze7Y
 
 Individual contributions:
 
@@ -40,4 +40,6 @@ Shivansh:
 4. Video providing an overview of the application and the structure of the code.
 
 Daryl:
-<TODO>
+1. Update SelectExecutor.java queries
+2. Video for Search(Select) and Delete
+3. Merging of videos and uploading to YouTube
