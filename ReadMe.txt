@@ -24,8 +24,6 @@ The welcome screen and the main menu will then appear!
 
 Video URL: <TODO>
 
-Other information: <OPTIONAL TODO>
-
 Individual contributions:
 
 Zach:
