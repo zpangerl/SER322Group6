@@ -9,7 +9,9 @@ Please make sure you have MySQL Workbench installed and working.
 
 Information on the environment for running the project:
 Please make sure you have java 18, as this will be run using java through the command line.
-Please also ensure that you have the mysql connector (The whole folder is included for ease of access, you do not need to download it separately)
+Please also ensure that you have the mysql connector driver, the version we used was 8.3.0
+(It is the same one we used for Assignment 5, here is the link if you need it: https://dev.mysql.com/downloads/connector/j/)
+Please use Platform Independent, as that is what we used
 As mentioned previously, make sure you have MySQL Workbench. The version that was used is 8.0.36
 
 Steps for executing application:
