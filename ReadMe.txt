@@ -34,7 +34,10 @@ Zach:
 5. Video for insert/update queries
 
 Shivansh:
-<TODO>
+1. UpdateExecutor.java
+2. DeleteEcecutor.java
+3. Revised the ER diagram
+4. Video providing an overview of the application and the structure of the code.
 
 Daryl:
 <TODO>
