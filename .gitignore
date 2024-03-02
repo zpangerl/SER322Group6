@@ -1,7 +1,8 @@
-.class
+*.class
 /build/
 *.DS_Store
 *.project
 *.classpath
 .gradle
 bin/
+*.zip
